@@ -1,0 +1,1 @@
+# devocional11-05-25
