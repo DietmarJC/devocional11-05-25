@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devocional - Salmos 94:19</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+    * {
+    box-sizing: border-box;
+    }
+
+    body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #e1bee7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    overflow-x: hidden;
+    }
+
+    .card {
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    max-width: 800px;
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 1.5s ease;
+    }
+
+    .card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+    }
+
+    .title {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3rem;
+    color: #6a1b9a;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-out;
+    }
+
+    .verse {
+    font-size: 1.4rem;
+    color: #4a148c;
+    margin: 25px 0;
+    font-style: italic;
+    line-height: 1.6;
+    animation: fadeIn 2s ease;
+    }
+
+    .section-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #7b1fa2;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    animation: fadeInUp 1s ease;
+    }
+
+    .reflection, .prayer {
+    font-size: 1.05rem;
+    color: #424242;
+    line-height: 1.7;
+    text-align: justify;
+    margin-bottom: 20px;
+    animation: fadeInUp 1.5s ease;
+    }
+
+    /* Aquí está el código de la imagen de fondo en la parte superior */
+    .image-banner {
+    width: 100%;
+      height: 300px; /* Puedes ajustar la altura según tus necesidades */
+    background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=1000&q=80') no-repeat center center;
+    background-size: cover;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    animation: fadeIn 2s ease;
+    }
+
+    .controls {
+    margin-top: 20px;
+    }
+
+    .controls button, .controls select {
+    background-color: #7b1fa2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+    }
+
+    .controls button:hover, .controls select:hover {
+    background-color: #6a1b9a;
+    }
+
+    audio {
+    display: none;
+    }
+
+    @media (max-width: 600px) {
+    .title {
+        font-size: 2.4rem;
+    }
+
+    .verse {
+        font-size: 1.2rem;
+    }
+
+    .image-banner {
+        height: 180px;
+    }
+    }
+
+    @keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-30px); }
+    100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+<div class="card">
+    <!-- Imagen en la parte superior -->
+    <div class="image-banner"></div>
+    <h1 class="title">Consuelo en medio del caos</h1>
+    <p class="verse">"En la multitud de mis pensamientos dentro de mí, tus consolaciones alegraban mi alma."<br><strong>Salmos 94:19</strong></p>
+
+    <p class="section-title">Reflexión</p>
+    <p class="reflection">
+    A veces la mente se convierte en un campo de batalla. Pensamientos ansiosos, miedos, preocupaciones y tristezas se agolpan todos a la vez. Pero este versículo nos recuerda una verdad profunda: Dios no ignora el caos interno, Él entra en medio de él con consuelo.
+    <br><br>
+    El salmista no dice que sus problemas desaparecieron, pero sí que en medio de todos sus pensamientos angustiantes, el consuelo de Dios trajo alegría a su alma. Su presencia, su Palabra, y su amor son el refugio donde podemos descansar.
+    </p>
+
+    <p class="section-title">Oración</p>
+    <p class="prayer">
+    Señor, en medio de tantas emociones y pensamientos que abruman, te pido que traigas tu consuelo y paz. Abraza a mi amiga con tu amor. Que sienta tu cercanía en cada suspiro, y que su alma se llene de la esperanza que solo Tú puedes dar. Amén.
+    </p>
+
+    <div class="controls">
+    <button onclick="toggleMusic()">⏯ Reproducir / Pausar Música</button>
+    <select id="trackSelector" onchange="changeTrack()">
+        <option value="music/Jimmy Clifton - Blood Stains [Official Lyric Video].mp3">Dulce</option>
+        <option value="music/Aquí Estoy.mp3">Brillante</option>
+        <option value="music/Cristo Yo Te Amo  No Hay Nadie Como Tú - Gabriel De Jesus - Banda JVDA.mp3">Reflexiva</option>
+    </select>
+    </div>
+
+    <audio id="bg-music" autoplay loop>
+    <source id="audio-source" src="music/Jimmy Clifton - Blood Stains [Official Lyric Video].mp3" type="audio/mpeg">
+    Tu navegador no soporta la reproducción de audio.
+    </audio>
+</div>
+
+<script>
+    const audio = document.getElementById('bg-music');
+    const source = document.getElementById('audio-source');
+    const selector = document.getElementById('trackSelector');
+
+    audio.volume = 0.25;
+    audio.play().catch(() => {});
+
+    function toggleMusic() {
+    if (audio.paused) {
+        audio.play();
+    } else {
+        audio.pause();
+    }
+    }
+
+    function changeTrack() {
+    const selectedTrack = selector.value;
+    source.src = selectedTrack;
+    audio.load();
+    audio.play();
+    }
+</script>
+</body>
+</html>
